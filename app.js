@@ -55,7 +55,7 @@ const startServer = () => {
   try {
     dbConnect(process.env.MONGO_URI);
     console.log("Connected to Database successfully.");
-    app.listen(PORT, console.log("Server started at http://localhost:4000"));
+    app.listen(PORT, console.log(`Server started at http://localhost:${PORT}`));
   } catch (error) {
     console.log(error);
   }
