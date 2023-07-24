@@ -14,7 +14,7 @@ import {
 
 const getAllUsers = async (req, res) => {
   const users = await UserModel.find().select("-password");
-  console.log(req.user);
+
   return res.status(StatusCodes.OK).json({ users });
 };
 

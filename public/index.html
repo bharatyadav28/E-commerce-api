@@ -8406,8 +8406,11 @@
                     <li><strong><a href=#Auth>Auth</a></strong>
                         <ul>
                             <li><a class=endpoint_menu href=#jump-Auth-Register>Register</a>
+                            <li><a class=endpoint_menu href=#jump-Auth-VerifyEmail>VerifyEmail</a>
                             <li><a class=endpoint_menu href=#jump-Auth-Login>Login</a>
                             <li><a class=endpoint_menu href=#jump-Auth-Logout>Logout</a>
+                            <li><a class=endpoint_menu href=#jump-Auth-ForgotPassword>ForgotPassword</a>
+                            <li><a class=endpoint_menu href=#jump-Auth-ResetPassword>ResetPassword</a>
                         </ul>
                     <li><strong><a href=#User>User</a></strong>
                         <ul>
@@ -8450,7 +8453,7 @@
                 <div class="panel panel-default">
                     <div class=panel-heading>
                         <h3 class=panel-title id=Auth>Auth
-                            <span class=badge>3</span>
+                            <span class=badge>6</span>
                         </h3>
                     </div>
                     <div class=panel-body>
@@ -8466,7 +8469,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-success">POST</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/auth/register
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/auth/register
                                             </h4>
                                         </a>
                                     </div>
@@ -8481,6 +8484,30 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="panel panel-success" id=jump-Auth-VerifyEmail>
+                                    <div class=panel-heading><small class="pull-right text-muted">raw</small>
+                                        <a class=text-success data-toggle=collapse data-parent=#accordion-Auth
+                                            href=#collapse-Auth-VerifyEmail>
+                                            <h4 class=panel-title><span
+                                                    class="glyphicon glyphicon-plus"></span><strong>VerifyEmail</strong>
+                                                &nbsp;|&nbsp;
+                                                <strong class="request-method border-success">POST</strong>
+                                                &nbsp;
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/auth/verify-email
+                                            </h4>
+                                        </a>
+                                    </div>
+                                    <div id=collapse-Auth-VerifyEmail class="panel-collapse collapse">
+                                        <div class=panel-body>
+                                            <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
+                                                &#34;email&#34;: &#34;amit@gmail.com&#34;,
+                                                &#34;verificationToken&#34;:
+                                                &#34;dcef796b7c1483acb2103d30f480927cfa402c77858fd089eca1ef8f931c5a1bcbf7c27e84e03e2e&#34;
+                                                }</span>
+                                            <div class=clearfix></div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="panel panel-success" id=jump-Auth-Login>
                                     <div class=panel-heading><small class="pull-right text-muted">raw</small>
                                         <a class=text-success data-toggle=collapse data-parent=#accordion-Auth
@@ -8490,7 +8517,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-success">POST</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/auth/login
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/auth/login
                                             </h4>
                                         </a>
                                     </div>
@@ -8498,26 +8525,72 @@
                                         <div class=panel-body>
                                             <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
                                                 &#34;email&#34;:&#34;amit@gmail.com&#34;,
-                                                &#34;password&#34;:&#34;abcd@1234&#34;
+                                                &#34;password&#34;:&#34;abcd@12344&#34;
                                                 }</span>
                                             <div class=clearfix></div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="panel panel-info" id=jump-Auth-Logout>
+                                <div class="panel panel-danger" id=jump-Auth-Logout>
                                     <div class=panel-heading><small class="pull-right text-muted"></small><a
-                                            class=text-info data-toggle=collapse data-parent=#accordion-Auth
+                                            class=text-danger data-toggle=collapse data-parent=#accordion-Auth
                                             href=#collapse-Auth-Logout>
                                             <h4 class=panel-title><span
                                                     class="glyphicon glyphicon-plus"></span><strong>Logout</strong>
                                                 &nbsp;|&nbsp;
-                                                <strong class="request-method border-info">GET</strong>
+                                                <strong class="request-method border-danger">DELETE</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/auth/logout
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/auth/logout
                                             </h4>
                                         </a></div>
                                     <div id=collapse-Auth-Logout class="panel-collapse collapse">
                                         <div class=panel-body></div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-success" id=jump-Auth-ForgotPassword>
+                                    <div class=panel-heading><small class="pull-right text-muted">raw</small>
+                                        <a class=text-success data-toggle=collapse data-parent=#accordion-Auth
+                                            href=#collapse-Auth-ForgotPassword>
+                                            <h4 class=panel-title><span
+                                                    class="glyphicon glyphicon-plus"></span><strong>ForgotPassword</strong>
+                                                &nbsp;|&nbsp;
+                                                <strong class="request-method border-success">POST</strong>
+                                                &nbsp;
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/auth/forgot-password
+                                            </h4>
+                                        </a>
+                                    </div>
+                                    <div id=collapse-Auth-ForgotPassword class="panel-collapse collapse">
+                                        <div class=panel-body>
+                                            <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
+                                                &#34;email&#34;:&#34;amit@gmail.com&#34;
+                                                }</span>
+                                            <div class=clearfix></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-success" id=jump-Auth-ResetPassword>
+                                    <div class=panel-heading><small class="pull-right text-muted">raw</small>
+                                        <a class=text-success data-toggle=collapse data-parent=#accordion-Auth
+                                            href=#collapse-Auth-ResetPassword>
+                                            <h4 class=panel-title><span
+                                                    class="glyphicon glyphicon-plus"></span><strong>ResetPassword</strong>
+                                                &nbsp;|&nbsp;
+                                                <strong class="request-method border-success">POST</strong>
+                                                &nbsp;
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/auth/reset-password
+                                            </h4>
+                                        </a>
+                                    </div>
+                                    <div id=collapse-Auth-ResetPassword class="panel-collapse collapse">
+                                        <div class=panel-body>
+                                            <h5 class="label label-primary">Body</h5><span class=resp-prettyprint>{
+                                                &#34;email&#34;:&#34;amit@gmail.com&#34;,
+                                                &#34;token&#34;:&#34;9cd4b6217cfbd86fa51ac4786bec1fa70e58de0707b815eb67a60bff4f38ff2ae7e31543bb4b389f54b28c663ed0dc821f7d3f4e842c1e05cfe8197a67f41511c3ea3ac7f24f&#34;,
+                                                &#34;password&#34;:&#34;abcd@12344&#34;
+                                                }</span>
+                                            <div class=clearfix></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -8543,7 +8616,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-info">GET</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/users
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/users
                                             </h4>
                                         </a></div>
                                     <div id=collapse-User-GetAllUser class="panel-collapse collapse">
@@ -8559,7 +8632,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-info">GET</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/users/64b7aca18af859622a5aaacc
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/users/64b7aca18af859622a5aaacc
                                             </h4>
                                         </a></div>
                                     <div id=collapse-User-GetSingleUser class="panel-collapse collapse">
@@ -8575,7 +8648,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-info">GET</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/users/showMe
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/users/showMe
                                             </h4>
                                         </a></div>
                                     <div id=collapse-User-ShowCurrentUser class="panel-collapse collapse">
@@ -8591,7 +8664,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-warning">PATCH</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/users/updateUser
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/users/updateUser
                                             </h4>
                                         </a>
                                     </div>
@@ -8614,7 +8687,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-warning">PATCH</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/users/updateUserPassword
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/users/updateUserPassword
                                             </h4>
                                         </a>
                                     </div>
@@ -8651,7 +8724,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-info">GET</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/products
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/products
                                             </h4>
                                         </a></div>
                                     <div id=collapse-Product-GetAllProducts class="panel-collapse collapse">
@@ -8667,7 +8740,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-success">POST</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/products
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/products
                                             </h4>
                                         </a>
                                     </div>
@@ -8702,7 +8775,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-info">GET</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/products/64b80618d1a2d9ab360667a1
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/products/64b80618d1a2d9ab360667a1
                                             </h4>
                                         </a></div>
                                     <div id=collapse-Product-GetSingleProduct class="panel-collapse collapse">
@@ -8718,7 +8791,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-warning">PATCH</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/products/64b7cd47f8a7df3374566c6e
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/products/64b7cd47f8a7df3374566c6e
                                             </h4>
                                         </a>
                                     </div>
@@ -8741,7 +8814,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-danger">DELETE</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/products/64b9450d27420599070602e1
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/products/64b9450d27420599070602e1
                                             </h4>
                                         </a></div>
                                     <div id=collapse-Product-DeleteProduct class="panel-collapse collapse">
@@ -8757,7 +8830,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-success">POST</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/products/uploadImage
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/products/uploadImage
                                             </h4>
                                         </a>
                                     </div>
@@ -8788,7 +8861,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-info">GET</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/products/64b80632d1a2d9ab360667a3/reviews
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/products/64b80632d1a2d9ab360667a3/reviews
                                             </h4>
                                         </a></div>
                                     <div id=collapse-Product-GetSingleProductReviews class="panel-collapse collapse">
@@ -8818,7 +8891,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-info">GET</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/reviews
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/reviews
                                             </h4>
                                         </a></div>
                                     <div id=collapse-Review-GetAllReviews class="panel-collapse collapse">
@@ -8834,7 +8907,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-success">POST</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/reviews/
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/reviews/
                                             </h4>
                                         </a>
                                     </div>
@@ -8859,7 +8932,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-info">GET</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/reviews/64b9165d2daec24f71110b5c
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/reviews/64b9165d2daec24f71110b5c
                                             </h4>
                                         </a></div>
                                     <div id=collapse-Review-GetSingleReview class="panel-collapse collapse">
@@ -8875,7 +8948,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-warning">PATCH</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/reviews/64ba2cd547368688c534f704
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/reviews/64ba2cd547368688c534f704
                                             </h4>
                                         </a>
                                     </div>
@@ -8899,7 +8972,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-danger">DELETE</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/reviews/64ba2b715464fd13a568d05e
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/reviews/64ba2b715464fd13a568d05e
                                             </h4>
                                         </a></div>
                                     <div id=collapse-Review-DeleteReview class="panel-collapse collapse">
@@ -8929,7 +9002,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-info">GET</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/orders
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/orders
                                             </h4>
                                         </a></div>
                                     <div id=collapse-Order-GetAllOrders class="panel-collapse collapse">
@@ -8945,7 +9018,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-info">GET</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/orders/64ba481fb5cbd0ea3598d429
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/orders/64ba481fb5cbd0ea3598d429
                                             </h4>
                                         </a></div>
                                     <div id=collapse-Order-GetSingleOrder class="panel-collapse collapse">
@@ -8961,7 +9034,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-info">GET</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/orders/showAllMyOrders
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/orders/showAllMyOrders
                                             </h4>
                                         </a></div>
                                     <div id=collapse-Order-GetCurrentUserOrders class="panel-collapse collapse">
@@ -8977,7 +9050,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-success">POST</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/orders/
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/orders/
                                             </h4>
                                         </a>
                                     </div>
@@ -9010,7 +9083,7 @@
                                                 &nbsp;|&nbsp;
                                                 <strong class="request-method border-warning">PATCH</strong>
                                                 &nbsp;
-                                               https://e-commerce-api-scyx.onrender.com/api/v1/orders/64ba453caf3f6114a6add2b0
+                                                https://e-commerce-api-scyx.onrender.com/api/v1/orders/64ba453caf3f6114a6add2b0
                                             </h4>
                                         </a>
                                     </div>
@@ -9030,12 +9103,12 @@
             </div>
         </div>
     </div>
-   <script src="./browser-app.js"></script><br><br>
+    <script src="./browser-app.js"></script><br><br>
     <footer class="navbar-default navbar-fixed-bottom">
         <div class=container-fluid>
             <div class="span12 text-center"><span data-toggle=tooltip
                     title="If the application help you, please feel free to give a star to the project in github. Your star inspire me to work more on open-source projects like this!">Generated
-                    at 2023-07-21 19:42:08 by <a href=https://github.com/thedevsaddam/docgen target=_blank
+                    at 2023-07-24 12:04:35 by <a href=https://github.com/thedevsaddam/docgen target=_blank
                         class=text-muted>docgen</a></span></div>
         </div>
     </footer>

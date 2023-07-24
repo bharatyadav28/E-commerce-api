@@ -1,16 +1,35 @@
 import { UnauthenticatedError } from "../errors/index.js";
-import { verify_token } from "../utils/index.js";
+import { attachCookiesToResponse, verify_token } from "../utils/index.js";
+import TokenModel from "../models/Token.js";
 
-const authentication = (req, res, next) => {
-  const token = req.signedCookies.token;
+const authentication = async (req, res, next) => {
+  const { accessToken, refreshToken } = req.signedCookies;
 
-  if (!token) {
-    throw new UnauthenticatedError("Invalid Credentials");
-  }
   try {
-    const payload = verify_token({ token });
-    const { userId, name, role } = payload;
-    req.user = { userId, name, role };
+    if (accessToken) {
+      const payload = verify_token(accessToken);
+      req.user = payload.user;
+      return next();
+    }
+
+    const payload = verify_token(refreshToken);
+
+    const existingToken = await TokenModel.findOne({
+      user: payload.user.userId,
+      refreshToken: payload.refreshToken,
+    });
+
+    if (!existingToken || !existingToken.isValid) {
+      throw new UnauthenticatedError("Authentication Invalid");
+    }
+
+    attachCookiesToResponse({
+      res,
+      user: payload.user,
+      refreshToken: payload.refreshToken,
+    });
+
+    req.user = payload.user;
     next();
   } catch (error) {
     throw new UnauthenticatedError("Invalid Credentials");
