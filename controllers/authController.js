@@ -42,7 +42,12 @@ const register = async (req, res) => {
 
   await sendVerificationEmail({ name, email, verificationToken, origin });
 
-  res.status(StatusCodes.CREATED).json({ user });
+  res
+    .status(StatusCodes.CREATED)
+    .json({
+      user,
+      msg: "Please check your email for verification (for testing use the verification token from above)",
+    });
 };
 
 const verifyEmail = async (req, res) => {
@@ -53,7 +58,7 @@ const verifyEmail = async (req, res) => {
   }
 
   if (!(user.verificationToken === verificationToken)) {
-    throw new UnauthenticatedError("verfication token is invalid");
+    throw new UnauthenticatedError("verification token is invalid");
   }
 
   user.isVerified = true;
